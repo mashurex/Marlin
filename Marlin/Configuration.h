@@ -502,9 +502,9 @@
 
 // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 // Creality Ender-3
-#define DEFAULT_Kp 32.59
-#define DEFAULT_Ki 4.96
-#define DEFAULT_Kd 53.57
+#define DEFAULT_Kp 31.46
+#define DEFAULT_Ki 4.56
+#define DEFAULT_Kd 54.22
 
 #endif // PIDTEMP
 
@@ -541,9 +541,9 @@
 //#define MIN_BED_POWER 0
 //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-#define DEFAULT_bedKp 46.78
-#define DEFAULT_bedKi 8.10
-#define DEFAULT_bedKd 180.01
+#define DEFAULT_bedKp 76.37
+#define DEFAULT_bedKi 14.88
+#define DEFAULT_bedKd 261.19
 
 //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
 //from pidautotune
@@ -571,7 +571,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 600
+#define EXTRUDE_MAXLENGTH 200
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -1270,7 +1270,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
 // Set the number of grid points per dimension.
-#define GRID_MAX_POINTS_X 9
+#define GRID_MAX_POINTS_X 7
 #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 // Probe along the Y axis, advancing X after each column
@@ -1335,7 +1335,7 @@
 #if ENABLED(LCD_BED_LEVELING)
 #define MESH_EDIT_Z_STEP 0.025 // (mm) Step size while manually probing Z axis.
 #define LCD_PROBE_Z_RANGE 4    // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-// #define MESH_EDIT_MENU         // Add a menu to edit mesh points
+#define MESH_EDIT_MENU         // Add a menu to edit mesh points
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
@@ -1364,7 +1364,7 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-//#define MANUAL_X_HOME_POS 0
+#define MANUAL_X_HOME_POS -8
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
 
