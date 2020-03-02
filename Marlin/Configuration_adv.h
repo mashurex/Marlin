@@ -1495,7 +1495,7 @@
 
 #define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
 #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
-#define DOUBLECLICK_MAX_INTERVAL 1250 // Maximum interval between clicks, in milliseconds. \
+#define DOUBLECLICK_MAX_INTERVAL 2000 // Maximum interval between clicks, in milliseconds. \
                                       // Note: Extra time may be added to mitigate controller latency.
 //#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
 //#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
@@ -1506,10 +1506,10 @@
 
 //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
 
-//#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+#define BABYSTEP_ZPROBE_OFFSET // Combine M851 Z and Babystepping
 #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
 //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-//#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
+#define BABYSTEP_ZPROBE_GFX_OVERLAY // Enable graphical overlay on Z-offset editor
 #endif
 #endif
 
@@ -1571,6 +1571,7 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
+#define MIN_PROBE_EDGE_LEFT 20
 //#define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
 //#define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE
 //#define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
@@ -1781,7 +1782,7 @@
 // enter the serial receive buffer, so they cannot be blocked.
 // Currently handles M108, M112, M410
 // Does not work on boards using AT90USB (USBCON) processors!
-//#define EMERGENCY_PARSER
+#define EMERGENCY_PARSER
 
 // Bad Serial-connections can miss a received command by sending an 'ok'
 // Therefore some clients abort after 30 seconds in a timeout.
@@ -1890,11 +1891,11 @@
 #define ADVANCED_PAUSE_FEATURE
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
 #define PAUSE_PARK_RETRACT_FEEDRATE 60       // (mm/s) Initial retract feedrate.
-#define PAUSE_PARK_RETRACT_LENGTH 2          // (mm) Initial retract. \
+#define PAUSE_PARK_RETRACT_LENGTH 1          // (mm) Initial retract. \
                                              // This short retract is done immediately, before parking the nozzle.
 #define FILAMENT_CHANGE_UNLOAD_FEEDRATE 10   // (mm/s) Unload filament feedrate. This can be pretty fast.
 #define FILAMENT_CHANGE_UNLOAD_ACCEL 25      // (mm/s^2) Lower acceleration may allow a faster feedrate.
-#define FILAMENT_CHANGE_UNLOAD_LENGTH 400    // (mm) The length of filament for a complete unload.    \
+#define FILAMENT_CHANGE_UNLOAD_LENGTH 100    // (mm) The length of filament for a complete unload.    \
                                              //   For Bowden, the full length of the tube and nozzle. \
                                              //   For direct drive, the full length of the nozzle.    \
                                              //   Set to 0 for manual unloading.
@@ -1903,7 +1904,7 @@
                                              // 0 to disable start loading and skip to fast load only
 #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE 6 // (mm/s) Load filament feedrate. This can be pretty fast.
 #define FILAMENT_CHANGE_FAST_LOAD_ACCEL 25   // (mm/s^2) Lower acceleration may allow a faster feedrate.
-#define FILAMENT_CHANGE_FAST_LOAD_LENGTH 350 // (mm) Load length of filament, from extruder gear to nozzle. \
+#define FILAMENT_CHANGE_FAST_LOAD_LENGTH 100 // (mm) Load length of filament, from extruder gear to nozzle. \
                                              //   For Bowden, the full length of the tube and nozzle.       \
                                              //   For direct drive, the full length of the nozzle.
 //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
@@ -1925,7 +1926,7 @@
 #define FILAMENT_CHANGE_ALERT_BEEPS 10 // Number of alert beeps to play when a response is needed.
 #define PAUSE_PARK_NO_STEPPER_TIMEOUT  // Enable for XYZ steppers to stay powered on during filament change.
 
-//#define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
+#define PARK_HEAD_ON_PAUSE // Park the nozzle during pause and filament change.
 //#define HOME_BEFORE_FILAMENT_CHANGE           // Ensure homing has been completed prior to parking for filament change
 
 #define FILAMENT_LOAD_UNLOAD_GCODES // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
@@ -2307,7 +2308,8 @@
 #define X2_HYBRID_THRESHOLD 100
 #define Y_HYBRID_THRESHOLD 100
 #define Y2_HYBRID_THRESHOLD 100
-#define Z_HYBRID_THRESHOLD 3
+// #define Z_HYBRID_THRESHOLD 3
+#define Z_HYBRID_THRESHOLD 25
 #define Z2_HYBRID_THRESHOLD 3
 #define Z3_HYBRID_THRESHOLD 3
 #define Z4_HYBRID_THRESHOLD 3

@@ -652,13 +652,13 @@
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#define X_MIN_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
+#define X_MIN_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true       // Set to true to invert the logic of the endstop.
+#define X_MAX_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Y_MAX_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Z_MAX_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
@@ -979,7 +979,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 50
+#define MIN_PROBE_EDGE 40
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -999,7 +999,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 3
+#define MULTIPLE_PROBING 2
 //#define EXTRA_PROBING    1
 
 /**
@@ -1024,8 +1024,8 @@
 #define Z_PROBE_LOW_POINT -3 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
-#define Z_PROBE_OFFSET_RANGE_MIN -20
-#define Z_PROBE_OFFSET_RANGE_MAX 20
+#define Z_PROBE_OFFSET_RANGE_MIN -5
+#define Z_PROBE_OFFSET_RANGE_MAX 1
 
 // Enable the M48 repeatability test to test probe accuracy
 #define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -1043,7 +1043,7 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+#define PROBING_HEATERS_OFF // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
 #define WAIT_FOR_BED_HEATER // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
@@ -1494,8 +1494,8 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL "PLA"
-#define PREHEAT_1_TEMP_HOTEND 185
-#define PREHEAT_1_TEMP_BED 45
+#define PREHEAT_1_TEMP_HOTEND 198
+#define PREHEAT_1_TEMP_BED 50
 #define PREHEAT_1_FAN_SPEED 255 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL "ABS"
