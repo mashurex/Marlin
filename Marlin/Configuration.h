@@ -103,7 +103,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 2
+#define SERIAL_PORT 0
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
@@ -130,7 +130,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-#define MOTHERBOARD BOARD_BTT_SKR_MINI_E3_V1_2
+#define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -500,12 +500,9 @@
 #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature \
                                 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
-// If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
-// Creality Ender-3
-#define DEFAULT_Kp 31.46
-#define DEFAULT_Ki 4.56
-#define DEFAULT_Kd 54.22
-
+#define DEFAULT_Kp 29.59
+#define DEFAULT_Ki 4.14
+#define DEFAULT_Kd 52.87
 #endif // PIDTEMP
 
 //===========================================================================
@@ -541,9 +538,9 @@
 //#define MIN_BED_POWER 0
 //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-#define DEFAULT_bedKp 76.37
-#define DEFAULT_bedKi 14.88
-#define DEFAULT_bedKd 261.19
+#define DEFAULT_bedKp 212.68
+#define DEFAULT_bedKi 42.49
+#define DEFAULT_bedKd 709.66
 
 //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
 //from pidautotune
@@ -676,15 +673,15 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE TMC2209
-#define Y_DRIVER_TYPE TMC2209
-#define Z_DRIVER_TYPE TMC2209
+#define X_DRIVER_TYPE TMC2208
+#define Y_DRIVER_TYPE TMC2208
+#define Z_DRIVER_TYPE TMC2208
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE TMC2209
+#define E0_DRIVER_TYPE TMC2208
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -738,7 +735,7 @@
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
   {                                 \
-    80, 80, 400, 415                \
+    80, 80, 400, 408.06             \
   }
 
 /**
@@ -767,7 +764,7 @@
  */
 #define DEFAULT_MAX_ACCELERATION \
   {                              \
-    500, 500, 100, 5000          \
+    2000, 2000, 100, 5000          \
   }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
@@ -786,9 +783,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION 500         // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION 1000         // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION 500 // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION 500  // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION 1000  // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -852,7 +849,7 @@
  *
  * Enable this option for a probe connected to the Z Min endstop pin.
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+// #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 /**
  * Z_MIN_PROBE_PIN
@@ -871,7 +868,7 @@
  *
  */
 //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
-
+#define Z_MIN_PROBE_PIN P0_10
 /**
  * Probe Type
  *
@@ -979,10 +976,10 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 40
+#define MIN_PROBE_EDGE 50
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 8000
+#define XY_PROBE_SPEED 6000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -1043,7 +1040,7 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-#define PROBING_HEATERS_OFF // Turn heaters off when probing
+// #define PROBING_HEATERS_OFF // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
 #define WAIT_FOR_BED_HEATER // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
@@ -1111,7 +1108,7 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 197
+#define X_BED_SIZE 195
 #define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
@@ -1364,7 +1361,7 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS -8
+//#define MANUAL_X_HOME_POS 20
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
 
@@ -1495,7 +1492,7 @@
 // Preheat Constants
 #define PREHEAT_1_LABEL "PLA"
 #define PREHEAT_1_TEMP_HOTEND 198
-#define PREHEAT_1_TEMP_BED 50
+#define PREHEAT_1_TEMP_BED 60
 #define PREHEAT_1_FAN_SPEED 255 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL "ABS"
@@ -1777,7 +1774,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-#define SPEAKER
+//#define SPEAKER
 
 //
 // The duration and frequency for the UI feedback sound.
@@ -1786,8 +1783,8 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-//#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
-//#define LCD_FEEDBACK_FREQUENCY_HZ 5000
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2
+#define LCD_FEEDBACK_FREQUENCY_HZ 5000
 
 //=============================================================================
 //======================== LCD / Controller Selection =========================

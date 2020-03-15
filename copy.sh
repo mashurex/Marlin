@@ -1,5 +1,6 @@
 #!/bin/bash -eu
-PLATFORM="STM32F103RC_bigtree_512K"
+#PLATFORM="STM32F103RC_bigtree_512K"
+PLATFORM="LPC1769"
 BUILD_DIR="./.pio/build"
 SRC_PATH="${BUILD_DIR}/${PLATFORM}/firmware.bin"
 

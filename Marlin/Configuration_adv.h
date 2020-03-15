@@ -350,7 +350,7 @@
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-#define FAN_KICKSTART_TIME 500
+#define FAN_KICKSTART_TIME 750
 
 // Some coolers may require a non-zero "off" state.
 //#define FAN_OFF_PWM  1
@@ -369,7 +369,8 @@
  */
 //#define FAN_MIN_PWM 50
 //#define FAN_MAX_PWM 128
-#define FAN_MAX_PWM 175
+#define FAN_MIN_PWM 75
+#define FAN_MAX_PWM 200
 
 /**
  * FAST PWM FAN Settings
@@ -1062,7 +1063,7 @@
 
 // Reverse SD sort to show "more recent" files first, according to the card's FAT.
 // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
-#define SDCARD_RATHERRECENTFIRST
+//#define SDCARD_RATHERRECENTFIRST
 
 #define SD_MENU_CONFIRM_START // Confirm the selected SD file before printing
 
@@ -2129,7 +2130,7 @@
 #endif
 
 #if AXIS_IS_TMC(E0)
-#define E0_CURRENT 650
+#define E0_CURRENT 680
 #define E0_MICROSTEPS 16
 #define E0_RSENSE 0.11
 #define E0_CHAIN_POS -1
@@ -2304,12 +2305,12 @@
    */
 #define HYBRID_THRESHOLD
 
-#define X_HYBRID_THRESHOLD 100 // [mm/s]
+#define X_HYBRID_THRESHOLD 80 // [mm/s]
 #define X2_HYBRID_THRESHOLD 100
-#define Y_HYBRID_THRESHOLD 100
+#define Y_HYBRID_THRESHOLD 80
 #define Y2_HYBRID_THRESHOLD 100
 // #define Z_HYBRID_THRESHOLD 3
-#define Z_HYBRID_THRESHOLD 25
+#define Z_HYBRID_THRESHOLD 10
 #define Z2_HYBRID_THRESHOLD 3
 #define Z3_HYBRID_THRESHOLD 3
 #define Z4_HYBRID_THRESHOLD 3
@@ -2375,7 +2376,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continous reporting.
    */
-//#define TMC_DEBUG
+#define TMC_DEBUG
 
 /**
    * You can set your own advanced settings by filling in predefined functions.
