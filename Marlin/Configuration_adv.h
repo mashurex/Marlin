@@ -1030,11 +1030,11 @@
 //#define LCD_SHOW_E_TOTAL
 
 #if HAS_GRAPHICAL_LCD && HAS_PRINT_PROGRESS
-//#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits
-//#define SHOW_REMAINING_TIME          // Display estimated time to completion
+#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits
+#define SHOW_REMAINING_TIME          // Display estimated time to completion
 #if ENABLED(SHOW_REMAINING_TIME)
 //#define USE_M73_REMAINING_TIME     // Use remaining time from M73 command instead of estimation
-//#define ROTATE_PROGRESS_DISPLAY    // Display (P)rogress, (E)lapsed, and (R)emaining time
+#define ROTATE_PROGRESS_DISPLAY // Display (P)rogress, (E)lapsed, and (R)emaining time
 #endif
 #endif
 
@@ -1535,7 +1535,10 @@
 #define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
 //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
-#define LIN_ADVANCE_K 0.1 // Unit: mm compression per 1mm/s extruder speed
+// PLA 0.6
+// #define LIN_ADVANCE_K 0.1
+// PETG 0.4
+#define LIN_ADVANCE_K 0.1
 //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
 #endif
 
@@ -2877,15 +2880,15 @@
 /**
  * User-defined menu items that execute custom GCode
  */
-//#define CUSTOM_USER_MENUS
+#define CUSTOM_USER_MENUS
 #if ENABLED(CUSTOM_USER_MENUS)
-//#define CUSTOM_USER_MENU_TITLE "Custom Commands"
+#define CUSTOM_USER_MENU_TITLE "Custom Commands"
 #define USER_SCRIPT_DONE "M117 User Script Done"
-#define USER_SCRIPT_AUDIBLE_FEEDBACK
-//#define USER_SCRIPT_RETURN  // Return to status screen after a script
+// #define USER_SCRIPT_AUDIBLE_FEEDBACK
+#define USER_SCRIPT_RETURN // Return to status screen after a script
 
-#define USER_DESC_1 "Home & UBL Info"
-#define USER_GCODE_1 "G28\nG29 W"
+#define USER_DESC_1 "Home"
+#define USER_GCODE_1 "G28"
 
 #define USER_DESC_2 "Preheat for " PREHEAT_1_LABEL
 #define USER_GCODE_2 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
@@ -2893,8 +2896,8 @@
 #define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
 #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
-#define USER_DESC_4 "Heat Bed/Home/Level"
-#define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+#define USER_DESC_4 "Generate Bed Mesh"
+#define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nG28\nG29\nM500"
 
 #define USER_DESC_5 "Home & Info"
 #define USER_GCODE_5 "G28\nM503"

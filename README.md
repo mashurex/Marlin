@@ -23,6 +23,9 @@ This is a customized firmware build for my Ender 3 with the following hardware m
 - Logitech C270 USB webcam mounted on X endstop housing
 - X and Z axis dampers (removed Y damper to make room for AIO)
 - Aluminum X and Y axis tensioners
+- Gulfcoast Robotics Aluminum 3-point Build Plate
+- Gulfcoast Robotics 3-point Y carriage
+- 24v 200w silicone bed heater w/ 100k NTC 3950 thermistor
 
 - Hotend PID tune
 - Bed PID tune

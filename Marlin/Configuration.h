@@ -469,14 +469,14 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
-#define HEATER_1_MAXTEMP 275
-#define HEATER_2_MAXTEMP 275
-#define HEATER_3_MAXTEMP 275
-#define HEATER_4_MAXTEMP 275
-#define HEATER_5_MAXTEMP 275
-#define HEATER_6_MAXTEMP 275
-#define HEATER_7_MAXTEMP 275
+#define HEATER_0_MAXTEMP 250
+#define HEATER_1_MAXTEMP 250
+#define HEATER_2_MAXTEMP 250
+#define HEATER_3_MAXTEMP 250
+#define HEATER_4_MAXTEMP 250
+#define HEATER_5_MAXTEMP 250
+#define HEATER_6_MAXTEMP 250
+#define HEATER_7_MAXTEMP 250
 #define BED_MAXTEMP 125
 
 //===========================================================================
@@ -538,9 +538,9 @@
 //#define MIN_BED_POWER 0
 //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-#define DEFAULT_bedKp 212.68
-#define DEFAULT_bedKi 42.49
-#define DEFAULT_bedKd 709.66
+#define DEFAULT_bedKp 102.92
+#define DEFAULT_bedKi 20.56
+#define DEFAULT_bedKd 343.92
 
 //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
 //from pidautotune
@@ -764,7 +764,7 @@
  */
 #define DEFAULT_MAX_ACCELERATION \
   {                              \
-    2000, 2000, 100, 5000          \
+    2000, 2000, 100, 5000        \
   }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
@@ -783,9 +783,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION 1000         // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION 1000        // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION 500 // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION 1000  // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION 1000 // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1108,14 +1108,14 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 195
+#define X_BED_SIZE 235
 #define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE
+#define X_MAX_POS 225
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 190
 
@@ -1361,8 +1361,8 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-//#define MANUAL_X_HOME_POS 20
-//#define MANUAL_Y_HOME_POS 0
+#define MANUAL_X_HOME_POS 30
+#define MANUAL_Y_HOME_POS 30
 //#define MANUAL_Z_HOME_POS 0
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
