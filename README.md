@@ -34,6 +34,17 @@ This is a customized firmware build for my Ender 3 with the following hardware m
 
 With this configuration I'm currently printing 'average'/functional prints at 80mm/s with a 0.6mm nozzle (0.8mm line width) and 0.34mm layer height with fantastic results.
 
+General config notes:
+
+- Bed Size: 225x235
+    + X is reduces so the direct drive stepper doesn't hit the frame
+- Home offsets:
+    + X: 30 for ABL probe clearance
+    + Y: 30 because Y home sensor had to be pushed forward to keep carriage from hitting the Y stepper
+- Z Max: 190
+    + Reduced so that direct drive stepper doesn't hit frame crossbar
+        
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
